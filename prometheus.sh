@@ -30,7 +30,6 @@ rule_files:
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
 scrape_configs:
-  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: 'prometheus'
     scrape_interval: 60s
     file_sd_configs:
@@ -71,7 +70,7 @@ cat > /etc/systemd/system/prometheus.service <<EOF
 Description=prometheus for Grafana Monitoring
 After=network.target
 [Service]
-ExecStart=$CDIR/prometheus-*/prometheus --config.file=$CDIR/prometheus-*/prometheus.yml 
+ExecStart=$CDIR/prometheus-$version.linux-amd64/prometheus --config.file=$CDIR/prometheus-$version.linux-amd64/prometheus.yml 
 [Install]
 WantedBy=multi-user.target
 EOF
