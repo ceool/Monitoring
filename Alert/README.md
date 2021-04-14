@@ -22,7 +22,7 @@ rendering_ignore_https_errors = true
 
 <br>
 
-### 서버 재시작 및 이미지 렌더링 확인
+### 서비스 재시작 및 이미지 렌더링 확인
 ```
 # service grafana-server restart
 ```
@@ -78,7 +78,7 @@ yum -y install libalsa* libgtk* libXss* libatk-bridge*
 
 ## 아무것도 출력되지 않으면 됩니다.
 ```
-그리고, 서버 재시작 및 그라파나 웹에 접속하여 이미지 렌더링이 작동하는지 확인합니다. <br>
+그리고, 서비스 재시작 및 그라파나 웹에 접속하여 이미지 렌더링이 작동하는지 확인합니다. <br>
 
 <br>
 
@@ -105,7 +105,7 @@ Alert에서 보여주는 localhost를 수정하려면 root_url을 수정해야�
 
 <br>
 
-### 서버 재시작
+### 서비스 재시작
 ```
 # service grafana-server restart
 ```
