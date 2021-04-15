@@ -28,7 +28,7 @@ rendering_ignore_https_errors = true
 ```
 
 ![22](https://user-images.githubusercontent.com/62891711/114642174-64bad180-9d0e-11eb-9479-aa0e569dd14c.png) <br>
-그라파나 웹에 접속 후, 확인
+그라파나 웹에 접속 후, Share에서 확인
 
 <br>
 
@@ -98,7 +98,9 @@ from_name = Grafana
 
 
 [server]
-root_url = http://Your_Host:3000/
+http_port = 3000
+domain = Your_Host
+root_url = %(protocol)s://%(domain)s:%(http_port)s/
 --------------------------------------------
 ```
 Alert에서 보여주는 localhost를 수정하려면 root_url을 수정해야합니다.
