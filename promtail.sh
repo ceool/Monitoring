@@ -1,6 +1,16 @@
 #!/bin/sh
 
 CDIR=$(pwd)
+
+loki_ip=10.0.2.10
+loki_port=3100
+batchwait="10s" #디폴트 1초
+service="ceool"
+pod="dev_web"
+stream="web_01"
+path="/var/log/*log"
+
+
 mkdir $CDIR/promtail
 cd promtail
 
@@ -20,7 +30,8 @@ positions:
   filename: /tmp/positions.yaml
 
 clients:
-  - url: http://localhost:3100/loki/api/v1/push
+  - url: http://${loki_ip}:${loki_port}/loki/api/v1/push
+    batchwait: "${batchwait}"
 
 scrape_configs:
 - job_name: system
@@ -29,7 +40,15 @@ scrape_configs:
       - localhost
     labels:
       job: varlogs
-      __path__: /var/log/*log
+      container_name: ${service}
+      pod_name: ${pod}
+      stream: ${stream}
+      __path__: ${path}
+     # host: testserver
+#pipeline_stages:
+#  - timestamp:
+#    format: 2006/01/02 15:04:05.999 MST
+#    source: timestamp
 EOF
 
 touch /etc/systemd/system/promtail.service
