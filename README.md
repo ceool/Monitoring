@@ -25,10 +25,22 @@ node_exporter: http://host_ip:9100/metrics (curl localhost:9100/metrics)
 loki: http://host_ip:3100/metrics (curl localhost:3100/metrics)
 promtail: http://host_ip:9080/targets (*sh 파일로 포트 수정)
 ```
+<br>
 
+![111](https://user-images.githubusercontent.com/62891711/114996369-b9f70e80-9ed9-11eb-9459-2be728ee0bba.png)
 
+```
+/$container_name-.*/
+ - 이걸 사용
 
+/$container_name-(.*)/ or /$container_name-$pod_name?-(.*)/
+ - 이 정규표현식 사용시, All에서 일부 카테고리가 작동하지 않음.
+```
 수집한 모니터링 정보를 그라파나가 보여줌.
+
+<br>
+
+## 간단한 구성도
 ![2](https://user-images.githubusercontent.com/62891711/114481586-d8da7400-9c3f-11eb-9825-31ac27ce8780.png)
 
 ```
