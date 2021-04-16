@@ -6,7 +6,7 @@ loki_ip=10.0.2.10
 loki_port=3100
 batchwait="10s" #디폴트 1초
 service="ceool"
-pod="dev_web"
+pod="dev"
 stream="web_01"
 path="/var/log/*log"
 
@@ -41,8 +41,8 @@ scrape_configs:
     labels:
       job: varlogs
       container_name: ${service}
-      pod_name: ${pod}
-      stream: ${stream}
+      pod_name: ${service}-${pod}
+      stream: ${service}-${pod}-${stream}
       __path__: ${path}
      # host: testserver
 #pipeline_stages:
