@@ -1,4 +1,4 @@
-#!/bin/sh
+﻿#!/bin/sh
 
 CDIR=$(pwd)
 
@@ -65,4 +65,5 @@ EOF
 systemctl daemon-reload
 systemctl start promtail
 systemctl enable promtail
+systemctl --runtime set-property promtail CPUQuota=50%
 systemctl status promtail
