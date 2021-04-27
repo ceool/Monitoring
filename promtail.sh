@@ -42,10 +42,9 @@ echo "  - targets:
       - localhost
     labels:
       job: varlogs
-      container_name: ${service}
-      pod_name: ${service}-${pod}
+      pod_name: ${pod}
       stream: ${service}-${pod}-${stream}-${app}
-      __path__: ${path}/${app}_log/*" >> $CDIR/promtail/promtail-local-config.yaml
+      __path__: ${path}/${app}/*" >> $CDIR/promtail/promtail-local-config.yaml
 done
 
 echo "     # host: testserver
