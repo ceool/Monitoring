@@ -48,7 +48,7 @@ touch $CDIR/prometheus-$version.linux-amd64/targets.json
 cat > $CDIR/prometheus-$version.linux-amd64/targets.json <<EOF
 [
   {
-    "targets": [ "localhost:9100", "1.1.1.1:9100" ],
+    "targets": [ "localhost:9090", "1.1.1.1:9100" ],
     "labels": {
       "env": "prod",
       "job": "job-name-1"
