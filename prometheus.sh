@@ -1,4 +1,4 @@
-#!/bin/sh
+﻿#!/bin/sh
 
 CDIR=$(pwd)
 version="2.26.0"
@@ -70,7 +70,7 @@ cat > /etc/systemd/system/prometheus.service <<EOF
 Description=prometheus for Grafana Monitoring
 After=network.target
 [Service]
-ExecStart=$CDIR/prometheus-$version.linux-amd64/prometheus --config.file=$CDIR/prometheus-$version.linux-amd64/prometheus.yml 
+ExecStart=$CDIR/prometheus-$version.linux-amd64/prometheus --config.file=$CDIR/prometheus-$version.linux-amd64/prometheus.yml --storage.tsdb.retention=2160h
 [Install]
 WantedBy=multi-user.target
 EOF
